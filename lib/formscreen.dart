@@ -10,7 +10,10 @@ class FormScreen extends StatefulWidget {
 }
 
 class _FormScreenState extends State<FormScreen> {
-  final GlobalKey<FormState> formKey = GlobalKey<FormState>();
+  final RegExp email = RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$');
+  final RegExp name = RegExp(r'^[A-Za-z]{3,}$');
+
+  final formKey = GlobalKey<FormState>();
 
   TextEditingController nameController = TextEditingController();
   TextEditingController emailController = TextEditingController();
@@ -53,16 +56,15 @@ class _FormScreenState extends State<FormScreen> {
               children: [
                 TextFormField(
                   controller: nameController,
-                  decoration: const InputDecoration(
+                  decoration: InputDecoration(
                     border: OutlineInputBorder(),
                     hintText: "Name",
                   ),
                   validator: (value) {
                     if (value == null || value.isEmpty) {
                       return "Enter Your Name";
-                    }
-                    if (value.length < 3) {
-                      return "Name must be at least 3 characters";
+                    } else if (!name.hasMatch(value)) {
+                      return "Name must have at least 3 letters and no numbers or special characters.";
                     }
                     return null;
                   },
@@ -78,9 +80,8 @@ class _FormScreenState extends State<FormScreen> {
                   validator: (value) {
                     if (value == null || value.isEmpty) {
                       return "Enter Your Email";
-                    }
-                    if (!value.contains('@')) {
-                      return "Enter a valid email";
+                    } else if (!email.hasMatch(value)) {
+                      return "Enter a valid Email(name@example.com)";
                     }
                     return null;
                   },
@@ -225,7 +226,7 @@ class _FormScreenState extends State<FormScreen> {
 
                       if (gender == null) {
                         ScaffoldMessenger.of(context).showSnackBar(
-                          const SnackBar(content: Text("Please select gender")),
+                          SnackBar(content: Text("Please select gender")),
                         );
                         return;
                       }
@@ -261,6 +262,7 @@ class _FormScreenState extends State<FormScreen> {
                       );
                     },
                     style: ElevatedButton.styleFrom(
+                      foregroundColor: Colors.white,
                       backgroundColor: Colors.blueAccent,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(9),

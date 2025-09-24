@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:packages/formscreen.dart';
 import 'package:packages/myalerts.dart';
 import 'package:packages/mypicker.dart';
+import 'package:packages/myvalidation.dart';
 
 class Homescreen extends StatelessWidget {
   const Homescreen({super.key});
@@ -20,6 +21,11 @@ class Homescreen extends StatelessWidget {
               screen: Mypicker(),
             ),
             custombutton(context, text: "Form", screen: FormScreen()),
+            custombutton(
+              context,
+              text: "Password Validation",
+              screen: Myvalidation(),
+            ),
           ],
         ),
       ),
