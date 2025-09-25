@@ -2,7 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:packages/formscreen.dart';
 import 'package:packages/myalerts.dart';
 import 'package:packages/mypicker.dart';
+import 'package:packages/mystagerred.dart';
 import 'package:packages/myvalidation.dart';
+import 'package:packages/staggered2.dart';
+import 'package:packages/staggered3.dart';
 
 class Homescreen extends StatelessWidget {
   const Homescreen({super.key});
@@ -26,6 +29,13 @@ class Homescreen extends StatelessWidget {
               text: "Password Validation",
               screen: Myvalidation(),
             ),
+            custombutton(
+              context,
+              text: "Staggered Grid View",
+              screen: Mystagerred(),
+            ),
+            custombutton(context, text: "Staggered 2", screen: Staggered2()),
+            custombutton(context, text: "Staggered 3", screen: Staggered3()),
           ],
         ),
       ),

@@ -64,7 +64,7 @@ class _FormScreenState extends State<FormScreen> {
                     if (value == null || value.isEmpty) {
                       return "Enter Your Name";
                     } else if (!name.hasMatch(value)) {
-                      return "Name must have at least 3 letters and no numbers or special characters.";
+                      return "Name must have atleast 3 letters and no numbers or special characters.";
                     }
                     return null;
                   },
