@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:packages/dashboard.dart';
+import 'package:packages/dashboard1.dart';
+import 'package:packages/dashboard2.dart';
 import 'package:packages/formscreen.dart';
 import 'package:packages/myalerts.dart';
 import 'package:packages/mypicker.dart';
@@ -36,6 +39,9 @@ class Homescreen extends StatelessWidget {
             ),
             custombutton(context, text: "Staggered 2", screen: Staggered2()),
             custombutton(context, text: "Staggered 3", screen: Staggered3()),
+            custombutton(context, text: "Dashboard ", screen: Dashboard()),
+            custombutton(context, text: "Dashboard 1", screen: Dashboard1()),
+            custombutton(context, text: "Dashboard 2", screen: Dashboard2()),
           ],
         ),
       ),
