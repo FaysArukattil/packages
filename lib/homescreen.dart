@@ -10,6 +10,7 @@ import 'package:packages/mystagerred.dart';
 import 'package:packages/myvalidation.dart';
 import 'package:packages/staggered2.dart';
 import 'package:packages/staggered3.dart';
+import 'package:packages/videoscreen.dart';
 
 class Homescreen extends StatelessWidget {
   const Homescreen({super.key});
@@ -45,6 +46,7 @@ class Homescreen extends StatelessWidget {
               custombutton(context, text: "Dashboard 1", screen: Dashboard1()),
               custombutton(context, text: "Dashboard 2", screen: Dashboard2()),
               custombutton(context, text: "Search", screen: Mysearch()),
+              custombutton(context, text: "Video", screen: VideoScreen()),
             ],
           ),
         ),
