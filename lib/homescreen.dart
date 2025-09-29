@@ -5,6 +5,7 @@ import 'package:packages/dashboard2.dart';
 import 'package:packages/formscreen.dart';
 import 'package:packages/myalerts.dart';
 import 'package:packages/mypicker.dart';
+import 'package:packages/mysearch.dart';
 import 'package:packages/mystagerred.dart';
 import 'package:packages/myvalidation.dart';
 import 'package:packages/staggered2.dart';
@@ -18,31 +19,34 @@ class Homescreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(),
       body: Center(
-        child: Column(
-          children: [
-            custombutton(context, text: "My Alerts", screen: Myalerts()),
-            custombutton(
-              context,
-              text: "Date & Time Picker",
-              screen: Mypicker(),
-            ),
-            custombutton(context, text: "Form", screen: FormScreen()),
-            custombutton(
-              context,
-              text: "Password Validation",
-              screen: Myvalidation(),
-            ),
-            custombutton(
-              context,
-              text: "Staggered Grid View",
-              screen: Mystagerred(),
-            ),
-            custombutton(context, text: "Staggered 2", screen: Staggered2()),
-            custombutton(context, text: "Staggered 3", screen: Staggered3()),
-            custombutton(context, text: "Dashboard ", screen: Dashboard()),
-            custombutton(context, text: "Dashboard 1", screen: Dashboard1()),
-            custombutton(context, text: "Dashboard 2", screen: Dashboard2()),
-          ],
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              custombutton(context, text: "My Alerts", screen: Myalerts()),
+              custombutton(
+                context,
+                text: "Date & Time Picker",
+                screen: Mypicker(),
+              ),
+              custombutton(context, text: "Form", screen: FormScreen()),
+              custombutton(
+                context,
+                text: "Password Validation",
+                screen: Myvalidation(),
+              ),
+              custombutton(
+                context,
+                text: "Staggered Grid View",
+                screen: Mystagerred(),
+              ),
+              custombutton(context, text: "Staggered 2", screen: Staggered2()),
+              custombutton(context, text: "Staggered 3", screen: Staggered3()),
+              custombutton(context, text: "Dashboard ", screen: Dashboard()),
+              custombutton(context, text: "Dashboard 1", screen: Dashboard1()),
+              custombutton(context, text: "Dashboard 2", screen: Dashboard2()),
+              custombutton(context, text: "Search", screen: Mysearch()),
+            ],
+          ),
         ),
       ),
     );
