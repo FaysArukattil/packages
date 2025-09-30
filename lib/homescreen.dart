@@ -8,6 +8,7 @@ import 'package:packages/mypicker.dart';
 import 'package:packages/mysearch.dart';
 import 'package:packages/mystagerred.dart';
 import 'package:packages/myvalidation.dart';
+import 'package:packages/ratingscreen.dart';
 import 'package:packages/staggered2.dart';
 import 'package:packages/staggered3.dart';
 import 'package:packages/videoscreen.dart';
@@ -47,6 +48,7 @@ class Homescreen extends StatelessWidget {
               custombutton(context, text: "Dashboard 2", screen: Dashboard2()),
               custombutton(context, text: "Search", screen: Mysearch()),
               custombutton(context, text: "Video", screen: VideoScreen()),
+              custombutton(context, text: "Rating", screen: Ratingscreen()),
             ],
           ),
         ),

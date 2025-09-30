@@ -12,7 +12,22 @@ class Dashboard2 extends StatefulWidget {
   State<Dashboard2> createState() => _Dashboard2State();
 }
 
-class _Dashboard2State extends State<Dashboard2> {
+class _Dashboard2State extends State<Dashboard2>
+    with SingleTickerProviderStateMixin {
+  PageController controller = PageController();
+  late TabController tabController;
+  @override
+  void initState() {
+    super.initState();
+    tabController = TabController(length: screens.length, vsync: this);
+    controller.addListener(() {
+      final newindex = controller.page?.round() ?? 0;
+      if (tabController.index != newindex) {
+        tabController.animateTo(newindex);
+      }
+    });
+  }
+
   int index = 0;
   List<Widget> screens = [
     Chatscreen(),
@@ -29,9 +44,22 @@ class _Dashboard2State extends State<Dashboard2> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: screens[index],
+      body: PageView.builder(
+        itemBuilder: (context, index) {
+          return screens[index];
+        },
+        controller: controller,
+        itemCount: screens.length,
+        onPageChanged: (value) {
+          setState(() {
+            index = value;
+          });
+        },
+      ),
       appBar: AppBar(backgroundColor: color[index]),
       bottomNavigationBar: ConvexAppBar(
+        controller: tabController,
+        initialActiveIndex: index,
         color: Colors.white,
         backgroundColor: Colors.black,
         activeColor: color[index],
@@ -43,7 +71,13 @@ class _Dashboard2State extends State<Dashboard2> {
         ],
         onTap: (int i) {
           index = i;
+
           setState(() {});
+          controller.animateToPage(
+            index,
+            duration: Duration(seconds: 1),
+            curve: Curves.easeInOutCubic,
+          );
         },
       ),
     );
