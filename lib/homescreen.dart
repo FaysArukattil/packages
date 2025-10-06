@@ -4,9 +4,12 @@ import 'package:packages/dashboard1.dart';
 import 'package:packages/dashboard2.dart';
 import 'package:packages/formscreen.dart';
 import 'package:packages/myalerts.dart';
+import 'package:packages/mydatatable.dart';
+import 'package:packages/my_images.dart';
 import 'package:packages/mypicker.dart';
 import 'package:packages/mysearch.dart';
 import 'package:packages/mystagerred.dart';
+import 'package:packages/mytable.dart';
 import 'package:packages/myvalidation.dart';
 import 'package:packages/ratingscreen.dart';
 import 'package:packages/staggered2.dart';
@@ -49,6 +52,9 @@ class Homescreen extends StatelessWidget {
               custombutton(context, text: "Search", screen: Mysearch()),
               custombutton(context, text: "Video", screen: VideoScreen()),
               custombutton(context, text: "Rating", screen: Ratingscreen()),
+              custombutton(context, text: "Table", screen: Mytable()),
+              custombutton(context, text: "DataTable", screen: Mydatatable()),
+              custombutton(context, text: "Image", screen: MyImage()),
             ],
           ),
         ),

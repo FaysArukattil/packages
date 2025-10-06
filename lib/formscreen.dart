@@ -108,7 +108,7 @@ class _FormScreenState extends State<FormScreen> {
                 SizedBox(height: 20),
 
                 DropdownButtonFormField(
-                  value: selectedCountry,
+                  initialValue: selectedCountry,
                   decoration: InputDecoration(
                     border: OutlineInputBorder(),
                     hintText: "Select Country",
@@ -142,7 +142,9 @@ class _FormScreenState extends State<FormScreen> {
                   children: [
                     Radio(
                       value: "Male",
+                      // ignore: deprecated_member_use
                       groupValue: gender,
+                      // ignore: deprecated_member_use
                       onChanged: (value) {
                         setState(() {
                           gender = value;
@@ -152,7 +154,9 @@ class _FormScreenState extends State<FormScreen> {
                     Text("Male"),
                     Radio(
                       value: "Female",
+                      // ignore: deprecated_member_use
                       groupValue: gender,
+                      // ignore: deprecated_member_use
                       onChanged: (value) {
                         setState(() {
                           gender = value;
