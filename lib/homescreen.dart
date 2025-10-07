@@ -60,7 +60,7 @@ class Homescreen extends StatelessWidget {
               custombutton(
                 context,
                 text: "ImagePicker",
-                screen: Imagepickerscreen(),
+                screen: ImagePickerScreen(),
               ),
               custombutton(context, text: "Toast", screen: Toastscreen()),
             ],
