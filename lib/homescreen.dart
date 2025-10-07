@@ -3,6 +3,7 @@ import 'package:packages/dashboard.dart';
 import 'package:packages/dashboard1.dart';
 import 'package:packages/dashboard2.dart';
 import 'package:packages/formscreen.dart';
+import 'package:packages/imagepickerscreen.dart';
 import 'package:packages/myalerts.dart';
 import 'package:packages/mydatatable.dart';
 import 'package:packages/my_images.dart';
@@ -14,6 +15,7 @@ import 'package:packages/myvalidation.dart';
 import 'package:packages/ratingscreen.dart';
 import 'package:packages/staggered2.dart';
 import 'package:packages/staggered3.dart';
+import 'package:packages/toastscreen.dart';
 import 'package:packages/videoscreen.dart';
 
 class Homescreen extends StatelessWidget {
@@ -55,6 +57,12 @@ class Homescreen extends StatelessWidget {
               custombutton(context, text: "Table", screen: Mytable()),
               custombutton(context, text: "DataTable", screen: Mydatatable()),
               custombutton(context, text: "Image", screen: MyImage()),
+              custombutton(
+                context,
+                text: "ImagePicker",
+                screen: Imagepickerscreen(),
+              ),
+              custombutton(context, text: "Toast", screen: Toastscreen()),
             ],
           ),
         ),
