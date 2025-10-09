@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:packages/contactscreen.dart';
 import 'package:packages/dashboard.dart';
 import 'package:packages/dashboard1.dart';
 import 'package:packages/dashboard2.dart';
 import 'package:packages/formscreen.dart';
 import 'package:packages/imagepickerscreen.dart';
+import 'package:packages/lottiscreen.dart';
 import 'package:packages/myalerts.dart';
 import 'package:packages/mydatatable.dart';
 import 'package:packages/my_images.dart';
@@ -63,6 +65,8 @@ class Homescreen extends StatelessWidget {
                 screen: ImagePickerScreen(),
               ),
               custombutton(context, text: "Toast", screen: Toastscreen()),
+              custombutton(context, text: "contacts", screen: Contactscreen()),
+              custombutton(context, text: "My Lotti", screen: Lottiscreen()),
             ],
           ),
         ),
