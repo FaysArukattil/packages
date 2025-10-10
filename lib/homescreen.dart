@@ -18,6 +18,7 @@ import 'package:packages/ratingscreen.dart';
 import 'package:packages/staggered2.dart';
 import 'package:packages/staggered3.dart';
 import 'package:packages/toastscreen.dart';
+import 'package:packages/url_laucher.dart';
 import 'package:packages/videoscreen.dart';
 
 class Homescreen extends StatelessWidget {
@@ -67,6 +68,7 @@ class Homescreen extends StatelessWidget {
               custombutton(context, text: "Toast", screen: Toastscreen()),
               custombutton(context, text: "contacts", screen: Contactscreen()),
               custombutton(context, text: "My Lotti", screen: Lottiscreen()),
+              custombutton(context, text: "Url Launcher", screen: Mylauncher()),
             ],
           ),
         ),
