@@ -9,56 +9,56 @@ class Mylauncher extends StatefulWidget {
 }
 
 class _MylauncherState extends State<Mylauncher> {
-  callphone(num phone) async {
-    // Uri url = Uri.parse('tel:$phone');
-    Uri url = Uri(scheme: 'tel', path: "$phone");
-
+  Future<void> callphone(num phone) async {
+    Uri url = Uri(scheme: 'tel', path: '$phone');
     if (await canLaunchUrl(url)) {
       launchUrl(url);
     } else {
-      throw "Could not launch phone call";
+      throw "Could not lauch phone call";
     }
   }
 
-  weblaunch(String link) async {
-    Uri url = Uri.parse(link);
+  Future<void> weblaunch(String urll) async {
+    Uri url = Uri.parse(urll);
+    if (await canLaunchUrl(url)) {
+      launchUrl(url, mode: LaunchMode.externalApplication);
+    } else {
+      throw "Could not lauch $urll";
+    }
+  }
 
+  Future<void> sendsms({required String phone, required String msg}) async {
+    final Uri url = Uri(scheme: 'sms', path: phone, query: 'body=$msg');
     if (await canLaunchUrl(url)) {
       launchUrl(url);
     } else {
-      throw "Could not launch $link";
+      throw "Could not lauch sms";
     }
   }
 
-  smslaunch({required String phone, required String msg}) async {
-    Uri url = Uri(
-      scheme: 'sms',
-      path: phone,
-      query: msg != null ? 'body=$msg' : null,
-    );
-
-    if (await canLaunchUrl(url)) {
-      launchUrl(url);
-    } else {
-      throw "Could not launch sms";
-    }
-  }
-
-  emaillaunch({
+  Future<void> sendemail({
     required String toaddress,
     required String body,
     required String subject,
   }) async {
-    Uri url = Uri(
+    final Uri url = Uri(
       scheme: 'mailto',
       path: toaddress,
       query: 'subject=$subject&body=$body',
     );
-
     if (await canLaunchUrl(url)) {
-      launchUrl(url);
+      launchUrl(url, mode: LaunchMode.externalApplication);
     } else {
-      throw "Could not launch email";
+      throw "Could not lauch email";
+    }
+  }
+
+  Future<void> sendwhatsapp(String no, String msg) async {
+    Uri url = Uri.parse("https://wa.me/$no?text=$msg");
+    if (await canLaunchUrl(url)) {
+      launchUrl(url, mode: LaunchMode.externalApplication);
+    } else {
+      throw "Could not lauch whatsapp";
     }
   }
 
@@ -66,51 +66,66 @@ class _MylauncherState extends State<Mylauncher> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          SizedBox(height: 50),
           ListTile(
             leading: CircleAvatar(),
-            title: Text("Fays Aruka"),
-            subtitle: Text("9605174832"),
+            title: Text("Sreejith"),
+            subtitle: Text("8943134357"),
             trailing: IconButton(
               onPressed: () {
-                callphone(9605174832);
+                callphone(8943134357);
               },
               icon: Icon(Icons.call),
             ),
           ),
           ListTile(
             leading: CircleAvatar(),
-            title: Text("Luminar"),
+            title: Text("https://maps.app.goo.gl/E66iCEiEmENrHAjA7"),
             trailing: IconButton(
               onPressed: () {
-                weblaunch("https://pub.dev/packages/url_launcher");
-              },
-              icon: Icon(Icons.arrow_circle_right_outlined),
-            ),
-          ),
-          ListTile(
-            leading: CircleAvatar(),
-            title: Text("SMS"),
-            trailing: IconButton(
-              onPressed: () {
-                smslaunch(phone: "9605174832", msg: "Hello");
-              },
-              icon: Icon(Icons.arrow_circle_right_outlined),
-            ),
-          ),
-          ListTile(
-            leading: CircleAvatar(),
-            title: Text("email"),
-            trailing: IconButton(
-              onPressed: () {
-                emaillaunch(
-                  toaddress: 'faysaruka@gmail.com',
-                  body: 'hi respected,sir ,....',
-                  subject: 'regarding..',
+                weblaunch(
+                  "https://www.google.com/maps?q=10.0276941,76.3074054",
                 );
               },
               icon: Icon(Icons.arrow_circle_right_outlined),
+            ),
+          ),
+          ListTile(
+            leading: CircleAvatar(),
+            title: Text("9987654320"),
+            subtitle: Text("hai"),
+            trailing: IconButton(
+              onPressed: () {
+                sendsms(phone: "9987654320", msg: "hai");
+              },
+              icon: Icon(Icons.send),
+            ),
+          ),
+          ListTile(
+            leading: CircleAvatar(),
+            title: Text("hr@luminartechnolab.com"),
+            subtitle: Text("hai"),
+            trailing: IconButton(
+              onPressed: () {
+                sendemail(
+                  toaddress: 'hr@luminartechnolab.com',
+                  body: 'haii',
+                  subject: 'testing',
+                );
+              },
+              icon: Icon(Icons.send),
+            ),
+          ),
+          ListTile(
+            leading: CircleAvatar(),
+            title: Text("9876543200"),
+            subtitle: Text("hai"),
+            trailing: IconButton(
+              onPressed: () {
+                sendwhatsapp("8111821148", "hai");
+              },
+              icon: Icon(Icons.send),
             ),
           ),
         ],
