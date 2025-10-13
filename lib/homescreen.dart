@@ -5,6 +5,7 @@ import 'package:packages/dashboard.dart';
 import 'package:packages/dashboard1.dart';
 import 'package:packages/dashboard2.dart';
 import 'package:packages/formscreen.dart';
+import 'package:packages/homework.dart';
 import 'package:packages/imagepickerscreen.dart';
 import 'package:packages/lottiscreen.dart';
 import 'package:packages/myalerts.dart';
@@ -77,6 +78,7 @@ class Homescreen extends StatelessWidget {
                 screen: Myanimations(),
               ),
               custombutton(context, text: "Animation 3", screen: Animaton3()),
+              custombutton(context, text: "Animation 4", screen: Homework()),
             ],
           ),
         ),
