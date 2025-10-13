@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:packages/animaton3.dart';
 import 'package:packages/contactscreen.dart';
 import 'package:packages/dashboard.dart';
 import 'package:packages/dashboard1.dart';
@@ -7,6 +8,7 @@ import 'package:packages/formscreen.dart';
 import 'package:packages/imagepickerscreen.dart';
 import 'package:packages/lottiscreen.dart';
 import 'package:packages/myalerts.dart';
+import 'package:packages/myanimations.dart';
 import 'package:packages/mydatatable.dart';
 import 'package:packages/my_images.dart';
 import 'package:packages/mypicker.dart';
@@ -69,6 +71,12 @@ class Homescreen extends StatelessWidget {
               custombutton(context, text: "contacts", screen: Contactscreen()),
               custombutton(context, text: "My Lotti", screen: Lottiscreen()),
               custombutton(context, text: "Url Launcher", screen: Mylauncher()),
+              custombutton(
+                context,
+                text: "Animations 1",
+                screen: Myanimations(),
+              ),
+              custombutton(context, text: "Animation 3", screen: Animaton3()),
             ],
           ),
         ),
